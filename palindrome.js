@@ -3,13 +3,17 @@ var isPalindrome = function (x) {
     return false;
   } else {
     let arrayOfNums = Array.from(String(x), Number);
-    console.log(arrayOfNums);
-    let reverseArray = arrayOfNums;
-    reverseArray = JSON.stringify(reverseArray.reverse());
-    arrayOfNums = JSON.stringify(arrayOfNums);
-    console.log(reverseArray);
-    return arrayOfNums === reverseArray ? true : false;
+    for (let i = 0; i < arrayOfNums.length / 2; i++) {
+      if (arrayOfNums[i] !== arrayOfNums[arrayOfNums.length - (i + 1)]) {
+        return false;
+      }
+    }
+    return true;
   }
 };
-console.log(isPalindrome(10));
-console.log(isPalindrome(151));
+
+// let arrayOfNums = Array.from(String(x), Number);
+//let reverseArray = arrayOfNums;
+// arrayOfNums = JSON.stringify(arrayOfNums);
+// reverseArray = JSON.stringify(reverseArray.reverse());
+//return (arrayOfNums.localeCompare(reverseArray) === 0) ? true : false;
